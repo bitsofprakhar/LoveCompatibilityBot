@@ -1,0 +1,50 @@
+Build a complete fun web app called **AI Love Compatibility Bot** using Python (Flask) and the Gemini API.
+
+🧠 App Idea:
+Two users enter their names, short bios, and (optional) zodiac signs.
+The backend sends this data to Gemini API, which generates a funny, romantic compatibility report, a fake “love score” out of 100, and a zodiac-style commentary.
+
+💻 Requirements:
+1. Use **Flask** as the backend framework.
+2. Create these files:
+   - `app.py` — main Flask file.
+   - `/templates/index.html` — input form for users.
+   - `/templates/result.html` — page to display AI results.
+   - `/static/style.css` — cute UI styling.
+3. The **index page** should include:
+   - Two sections (Person 1 & Person 2) each with:
+     - Name (text input)
+     - Bio (textarea)
+     - Zodiac (optional)
+   - A “💘 Check Compatibility” button.
+4. When submitted:
+   - Send form data via POST to `/generate` route.
+   - The backend formats a prompt like this:
+     ```
+     Compare the compatibility between these two people based on their bios:
+     Person 1: [Name1], [Bio1], [Zodiac1]
+     Person 2: [Name2], [Bio2], [Zodiac2]
+     Make it humorous, romantic, and creative. 
+     Include:
+     - A love score out of 100 ❤️
+     - A zodiac commentary 🔮
+     - A funny 'Love Aura Name' 💫
+     - A short poetic summary 💌
+     Use emojis generously.
+     ```
+   - Send this prompt to **Gemini API (Text model)**.
+5. The **result page** should:
+   - Display the AI’s full love report in a styled card.
+   - Show hearts, glowing background, and a “Try Again” button to go back.
+6. Design:
+   - Gradient background (pink to purple)
+   - Floating heart animations (simple CSS)
+   - Rounded cards, cute fonts
+7. Use environment variables for the Gemini API key:
+   - Load it with `os.getenv("GEMINI_API_KEY")`
+   - Add comment explaining where to put it in Replit’s “Secrets” tab
+8. Comment the code clearly so beginners can understand.
+9. Optional (bonus): Add Replit DB to save the last 5 matches and display them on the homepage.
+
+🎁 Output:
+A ready-to-run Flask app that lets two users enter details, calls Gemini API, and shows a fun AI-generated compatibility report with a love score, zodiac match, and “Love Aura” name.
