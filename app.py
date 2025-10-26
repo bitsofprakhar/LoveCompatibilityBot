@@ -44,18 +44,20 @@ def generate():
     
     # Get form data from the submitted form
     person1_name = request.form.get('person1_name', 'Person 1')
+    person1_age = request.form.get('person1_age', 'Unknown')
     person1_bio = request.form.get('person1_bio', '')
     person1_zodiac = request.form.get('person1_zodiac', 'Unknown')
     
     person2_name = request.form.get('person2_name', 'Person 2')
+    person2_age = request.form.get('person2_age', 'Unknown')
     person2_bio = request.form.get('person2_bio', '')
     person2_zodiac = request.form.get('person2_zodiac', 'Unknown')
     
     # Create the prompt for Gemini AI
-    prompt = f"""Compare the compatibility between these two people based on their bios:
+    prompt = f"""Compare the compatibility between these two people based on their information:
 
-Person 1: {person1_name}, Bio: {person1_bio}, Zodiac: {person1_zodiac}
-Person 2: {person2_name}, Bio: {person2_bio}, Zodiac: {person2_zodiac}
+Person 1: {person1_name}, Age: {person1_age}, Bio: {person1_bio}, Zodiac: {person1_zodiac}
+Person 2: {person2_name}, Age: {person2_age}, Bio: {person2_bio}, Zodiac: {person2_zodiac}
 
 Make it humorous, romantic, and creative. 
 
