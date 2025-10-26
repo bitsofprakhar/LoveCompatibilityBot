@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Compatibility Results 💖</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Floating hearts animation background -->
+    <div class="hearts">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+    <div class="container">
+        <h1 class="title">💖 Your Love Compatibility Report 💖</h1>
+        
+        {% if not error %}
+            {% if person1 and person2 %}
+                <p class="subtitle">{{ person1 }} 💕 {{ person2 }}</p>
+            {% endif %}
+        {% endif %}
+
+        <!-- Results Card -->
+        <div class="result-card {% if error %}error-card{% endif %}">
+            {% if error %}
+                <div class="error-icon">⚠️</div>
+            {% endif %}
+            
+            <!-- Display the AI-generated report -->
+            <div class="report-content">
+                {{ report }}
+            </div>
+        </div>
+
+        <!-- Try Again Button -->
+        <a href="/" class="try-again-btn">
+            🔄 Try Another Match
+        </a>
+
+        {% if not error %}
+            <p class="disclaimer">✨ Powered by AI magic and cosmic wisdom ✨</p>
+        {% endif %}
+    </div>
+</body>
+</html>

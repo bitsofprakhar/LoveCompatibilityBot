@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Love Compatibility Bot 💘</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Floating hearts animation background -->
+    <div class="hearts">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+    <div class="container">
+        <h1 class="title">💘 AI Love Compatibility Bot 💘</h1>
+        <p class="subtitle">Discover your cosmic connection with AI-powered insights!</p>
+
+        <!-- Main form for compatibility check -->
+        <form action="/generate" method="POST" class="compatibility-form">
+            
+            <!-- Person 1 Section -->
+            <div class="person-card">
+                <h2 class="person-title">✨ Person 1</h2>
+                
+                <div class="form-group">
+                    <label for="person1_name">Name:</label>
+                    <input type="text" 
+                           id="person1_name" 
+                           name="person1_name" 
+                           placeholder="Enter your name" 
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="person1_bio">Bio:</label>
+                    <textarea id="person1_bio" 
+                              name="person1_bio" 
+                              placeholder="Tell us about yourself... (hobbies, interests, personality)" 
+                              rows="4" 
+                              required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="person1_zodiac">Zodiac Sign (optional):</label>
+                    <select id="person1_zodiac" name="person1_zodiac">
+                        <option value="">Select zodiac sign</option>
+                        <option value="Aries">♈ Aries</option>
+                        <option value="Taurus">♉ Taurus</option>
+                        <option value="Gemini">♊ Gemini</option>
+                        <option value="Cancer">♋ Cancer</option>
+                        <option value="Leo">♌ Leo</option>
+                        <option value="Virgo">♍ Virgo</option>
+                        <option value="Libra">♎ Libra</option>
+                        <option value="Scorpio">♏ Scorpio</option>
+                        <option value="Sagittarius">♐ Sagittarius</option>
+                        <option value="Capricorn">♑ Capricorn</option>
+                        <option value="Aquarius">♒ Aquarius</option>
+                        <option value="Pisces">♓ Pisces</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Person 2 Section -->
+            <div class="person-card">
+                <h2 class="person-title">💫 Person 2</h2>
+                
+                <div class="form-group">
+                    <label for="person2_name">Name:</label>
+                    <input type="text" 
+                           id="person2_name" 
+                           name="person2_name" 
+                           placeholder="Enter their name" 
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="person2_bio">Bio:</label>
+                    <textarea id="person2_bio" 
+                              name="person2_bio" 
+                              placeholder="Tell us about them... (hobbies, interests, personality)" 
+                              rows="4" 
+                              required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="person2_zodiac">Zodiac Sign (optional):</label>
+                    <select id="person2_zodiac" name="person2_zodiac">
+                        <option value="">Select zodiac sign</option>
+                        <option value="Aries">♈ Aries</option>
+                        <option value="Taurus">♉ Taurus</option>
+                        <option value="Gemini">♊ Gemini</option>
+                        <option value="Cancer">♋ Cancer</option>
+                        <option value="Leo">♌ Leo</option>
+                        <option value="Virgo">♍ Virgo</option>
+                        <option value="Libra">♎ Libra</option>
+                        <option value="Scorpio">♏ Scorpio</option>
+                        <option value="Sagittarius">♐ Sagittarius</option>
+                        <option value="Capricorn">♑ Capricorn</option>
+                        <option value="Aquarius">♒ Aquarius</option>
+                        <option value="Pisces">♓ Pisces</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">
+                💘 Check Compatibility 💘
+            </button>
+        </form>
+    </div>
+</body>
+</html>

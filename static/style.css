@@ -1,0 +1,316 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff6ec4 0%, #7873f5 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Floating Hearts Animation */
+.hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: rotate(45deg);
+    animation: float 15s infinite ease-in-out;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+
+/* Different hearts with varied positions and delays */
+.heart:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+.heart:nth-child(2) { left: 25%; animation-delay: 2s; animation-duration: 15s; }
+.heart:nth-child(3) { left: 40%; animation-delay: 4s; animation-duration: 18s; }
+.heart:nth-child(4) { left: 55%; animation-delay: 1s; animation-duration: 14s; }
+.heart:nth-child(5) { left: 70%; animation-delay: 3s; animation-duration: 16s; }
+.heart:nth-child(6) { left: 85%; animation-delay: 5s; animation-duration: 13s; }
+.heart:nth-child(7) { left: 15%; animation-delay: 6s; animation-duration: 17s; }
+.heart:nth-child(8) { left: 60%; animation-delay: 2.5s; animation-duration: 15s; }
+
+@keyframes float {
+    0% {
+        bottom: -50px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        bottom: 110vh;
+        opacity: 0;
+    }
+}
+
+/* Main Container */
+.container {
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Title and Subtitle */
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 30px;
+}
+
+/* Form Styles */
+.compatibility-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.person-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.person-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.person-title {
+    color: #7873f5;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #ff6ec4;
+    box-shadow: 0 0 0 3px rgba(255, 110, 196, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: linear-gradient(135deg, #ff6ec4 0%, #ff5e8a 100%);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 110, 196, 0.4);
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(255, 110, 196, 0.6);
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Result Page Styles */
+.result-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    margin-bottom: 30px;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.error-card {
+    background: rgba(255, 235, 235, 0.95);
+    border: 2px solid #ff6b6b;
+}
+
+.error-icon {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.report-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    white-space: pre-wrap;
+}
+
+.report-content strong {
+    color: #ff6ec4;
+    font-weight: 700;
+}
+
+/* Try Again Button */
+.try-again-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #7873f5 0%, #5e68d9 100%);
+    color: white;
+    text-decoration: none;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(120, 115, 245, 0.4);
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+}
+
+.try-again-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(120, 115, 245, 0.6);
+}
+
+.try-again-btn:active {
+    transform: scale(0.98);
+}
+
+.disclaimer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .person-card {
+        padding: 20px;
+    }
+    
+    .submit-btn {
+        font-size: 1.1rem;
+        padding: 15px 30px;
+    }
+    
+    .result-card {
+        padding: 25px;
+    }
+    
+    .report-content {
+        font-size: 1rem;
+    }
+}
