@@ -43,13 +43,16 @@ This Flask web app uses Google's Gemini AI to analyze compatibility between two 
 
 ### 2. Add API Key to Replit Secrets
 
+**Good news!** Your `GOOGLE_API_KEY` is already configured in Replit Secrets, so you can skip this step and start using the app right away!
+
+If you need to update or add the key:
 1. In Replit, open the **Tools** menu in the left sidebar
 2. Click on **Secrets**
-3. Click the **+ New Secret** button
+3. Find `GOOGLE_API_KEY` or click **+ New Secret** to add it
 4. Enter:
-   - **Key**: `GEMINI_API_KEY`
+   - **Key**: `GOOGLE_API_KEY`
    - **Value**: Paste your API key from step 1
-5. Click **Add Secret**
+5. Click **Add Secret** or **Update**
 
 ### 3. Run the Application
 

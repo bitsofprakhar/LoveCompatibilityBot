@@ -5,7 +5,7 @@ This app uses Gemini AI to generate fun compatibility reports between two people
 
 import os
 from flask import Flask, render_template, request
-import google.generativeai as genai
+from google import genai
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -14,15 +14,14 @@ app = Flask(__name__)
 app.secret_key = os.getenv('SESSION_SECRET', 'dev-secret-key-change-in-production')
 
 # Configure Gemini API
-# IMPORTANT: Add your GEMINI_API_KEY in Replit's "Secrets" tab (Tools > Secrets)
+# IMPORTANT: The GOOGLE_API_KEY should already be set in Replit's "Secrets" tab
 # Get your API key from: https://aistudio.google.com/app/apikey
-api_key = os.getenv('GEMINI_API_KEY')
+api_key = os.getenv('GOOGLE_API_KEY')
 if api_key:
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    client = genai.Client(api_key=api_key)
 else:
-    model = None
-    print("⚠️ WARNING: GEMINI_API_KEY not found! Please add it in Replit Secrets.")
+    client = None
+    print("⚠️ WARNING: GOOGLE_API_KEY not found! Please add it in Replit Secrets.")
 
 
 @app.route('/')
@@ -39,8 +38,8 @@ def generate():
     Process the form submission and generate compatibility report using Gemini AI
     """
     # Check if API key is configured
-    if not model:
-        error_message = "Gemini API key is not configured. Please add GEMINI_API_KEY to your Replit Secrets."
+    if not client:
+        error_message = "Gemini API key is not configured. Please add GOOGLE_API_KEY to your Replit Secrets."
         return render_template('result.html', report=error_message, error=True)
     
     # Get form data from the submitted form
@@ -70,8 +69,11 @@ Use emojis generously and make it entertaining!"""
     
     try:
         # Send the prompt to Gemini AI and get the response
-        response = model.generate_content(prompt)
-        compatibility_report = response.text
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=prompt
+        )
+        compatibility_report = response.text if response.text else "No response generated"
         
         # Render the result page with the AI-generated report
         return render_template('result.html', 
